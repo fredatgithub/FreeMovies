@@ -27,7 +27,7 @@ object ApiClient {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("222")
+            .baseUrl("https://www.googleapis.com/youtube/v3/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

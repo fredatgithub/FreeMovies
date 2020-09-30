@@ -1,6 +1,5 @@
 package com.georgcantor.freemovies.model
 
-import com.georgcantor.freemovies.BuildConfig.YOUTUBE_URL
 import com.georgcantor.freemovies.model.response.VideoResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,7 +10,7 @@ interface ApiService {
 
     @GET
     suspend fun getVideos(
-        @Url url: String = YOUTUBE_URL,
+        @Url url: String,
         @Query("playlistId") playlistId: String
     ): Response<VideoResponse>
 }

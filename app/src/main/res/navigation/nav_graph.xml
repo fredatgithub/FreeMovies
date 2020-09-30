@@ -23,4 +23,10 @@
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
 
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.georgcantor.freemovies.ui.fragment.list.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list" />
+
 </navigation>

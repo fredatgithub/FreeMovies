@@ -21,6 +21,10 @@ android {
         }
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'YOUTUBE_URL', "\"playlistItems?key=YOUR_KEY=items&part=snippet&maxResults=60\""
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -57,4 +61,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
