@@ -3,8 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@+id/nav_portfolio">
 
+    <fragment
+        android:id="@+id/nav_portfolio"
+        android:name="com.georgcantor.stock.ui.portfolio.PortfolioFragment"
+        android:label="@string/movies"
+        tools:layout="@layout/fragment_portfolio" />
 
+<!--    <fragment-->
+<!--        android:id="@+id/nav_market"-->
+<!--        android:name="com.georgcantor.stock.ui.market.MarketFragment"-->
+<!--        android:label="@string/portfolio"-->
+<!--        tools:layout="@layout/fragment_market" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_profile"-->
+<!--        android:name="com.georgcantor.stock.ui.profile.ProfileFragment"-->
+<!--        android:label="@string/profile"-->
+<!--        tools:layout="@layout/fragment_profile" />-->
 
 </navigation>
