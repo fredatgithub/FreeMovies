@@ -1,6 +1,7 @@
 package com.georgcantor.freemovies.di
 
 import com.georgcantor.freemovies.model.ApiClient
+import com.georgcantor.freemovies.repository.Repository
 import org.koin.dsl.module
 
 val apiModule = module {
@@ -8,7 +9,7 @@ val apiModule = module {
 }
 
 val repositoryModule = module {
-//    single { Repository(get()) }
+    single { Repository(get()) }
 }
 
 val viewModelModule = module(override = true) {
