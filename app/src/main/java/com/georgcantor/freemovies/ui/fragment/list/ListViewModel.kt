@@ -11,9 +11,9 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
 
     val videos = MutableLiveData<List<Item>>()
 
-    init {
+    fun getVideos(id: String) {
         viewModelScope.launch {
-            val response = repository.getVideos()
+            val response = repository.getVideos(id)
             if (response.isSuccessful) videos.postValue(response.body()?.items)
         }
     }
