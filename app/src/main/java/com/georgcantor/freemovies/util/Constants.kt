@@ -10,4 +10,5 @@ object Constants {
     const val COMEDY = "PLLblb2h8zPWUNgwnfou3en6_Wm01xMpM2"
 
     const val PLAYLIST_ID = "playlist_id"
+    const val VIDEO_ITEM = "video_item"
 }
