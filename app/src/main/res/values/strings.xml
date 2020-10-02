@@ -12,4 +12,5 @@
     <string name="russia">Россия</string>
     <string name="germany">Германия</string>
     <string name="after_football">После футбола</string>
+    <string name="internet_unavailable">Интернет недоступен</string>
 </resources>
