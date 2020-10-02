@@ -7,9 +7,9 @@
         android:title="@string/movies" />
 
     <item
-        android:id="@+id/nav_series"
+        android:id="@+id/nav_tv"
         android:icon="@drawable/ic_series"
-        android:title="@string/series" />
+        android:title="@string/tv" />
 
     <item
         android:id="@+id/nav_favorites"

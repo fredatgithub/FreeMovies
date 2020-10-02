@@ -2,6 +2,7 @@ package com.georgcantor.freemovies.util
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -22,3 +23,7 @@ fun AppCompatActivity.openFragment(fragment: Fragment) = supportFragmentManager.
         addToBackStack(null)
         commit()
     }
+
+fun View.visible() { visibility = View.VISIBLE }
+
+fun View.gone() { visibility = View.GONE }

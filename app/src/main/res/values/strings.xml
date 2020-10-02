@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FreeMovies</string>
     <string name="movies">Фильмы</string>
-    <string name="series">Сериалы</string>
+    <string name="tv">TV-шоу</string>
     <string name="favorites">Избранные</string>
 </resources>
