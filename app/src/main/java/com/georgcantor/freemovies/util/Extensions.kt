@@ -14,13 +14,12 @@ fun Context.isNetworkAvailable() = (getSystemService(Context.CONNECTIVITY_SERVIC
 
 fun Context.loadImage(url: String, view: ImageView) = Glide.with(this)
     .load(url)
-    .placeholder(R.drawable.ic_launcher_background)
+    .placeholder(android.R.color.darker_gray)
     .thumbnail(0.1F)
     .into(view)
 
 fun AppCompatActivity.openFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
-        add(R.id.nav_host_fragment, fragment)
-        addToBackStack(null)
+        replace(R.id.fragment, fragment)
         commit()
     }
 

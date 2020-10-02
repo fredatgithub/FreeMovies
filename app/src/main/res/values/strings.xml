@@ -6,11 +6,14 @@
     <string name="thriller">Триллеры</string>
     <string name="horror">Ужасы</string>
     <string name="comedy">Комедии</string>
+    <string name="drama">Драмы</string>
     <string name="kitchen">Кухня</string>
     <string name="bad_girls">Пацанки</string>
     <string name="revizorro">Ревизорро</string>
+    <string name="street_voice">Голос улиц</string>
     <string name="russia">Россия</string>
     <string name="germany">Германия</string>
+    <string name="italy">Италия</string>
     <string name="after_football">После футбола</string>
     <string name="internet_unavailable">Интернет недоступен</string>
 </resources>
