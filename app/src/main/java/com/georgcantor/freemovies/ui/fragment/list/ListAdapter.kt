@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.model.response.Item
 import com.georgcantor.freemovies.ui.fragment.list.ListAdapter.ListViewHolder
 import com.georgcantor.freemovies.util.loadImage
-import kotlinx.android.synthetic.main.item_list.view.*
+import kotlinx.android.synthetic.main.item_video.view.*
 
 class ListAdapter(
     private val items: List<Item>,
@@ -26,7 +25,7 @@ class ListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.item_video, parent, false)
     )
 
     override fun getItemCount() = items.size
@@ -37,13 +36,11 @@ class ListAdapter(
             item.snippet?.thumbnails?.standard?.url?.let {
                 itemView.context.loadImage(it, holder.image)
             }
-            title.text = item.snippet?.title
             itemView.setOnClickListener { clickListener(item) }
         }
     }
 
     class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.image
-        val title: TextView = view.title
     }
 }

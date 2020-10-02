@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">FreeMovies</string>
+    <string name="app_name">Фильмы</string>
     <string name="movies">Фильмы</string>
     <string name="tv">TV-шоу</string>
-    <string name="favorites">Избранные</string>
+    <string name="sport">Спорт</string>
+    <string name="thriller">Триллеры</string>
+    <string name="horror">Ужасы</string>
+    <string name="comedy">Комедии</string>
+    <string name="kitchen">Кухня</string>
+    <string name="bad_girls">Пацанки</string>
+    <string name="revizorro">Ревизорро</string>
+    <string name="russia">Россия</string>
+    <string name="germany">Германия</string>
+    <string name="after_football">После футбола</string>
 </resources>

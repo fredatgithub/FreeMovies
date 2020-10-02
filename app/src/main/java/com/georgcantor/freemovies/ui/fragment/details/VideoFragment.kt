@@ -2,9 +2,6 @@ package com.georgcantor.freemovies.ui.fragment.details
 
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-import android.content.res.Configuration
-import android.content.res.Configuration.ORIENTATION_LANDSCAPE
-import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
 import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -13,8 +10,11 @@ import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.util.Constants.PLAYLIST_ID
+import com.georgcantor.freemovies.util.gone
+import com.georgcantor.freemovies.util.visible
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_video.*
 
 class VideoFragment : Fragment(R.layout.fragment_video) {
@@ -38,12 +38,12 @@ class VideoFragment : Fragment(R.layout.fragment_video) {
             })
 
             getPlayerUiController()
-                .setFullScreenButtonClickListener(View.OnClickListener {
+                .setFullScreenButtonClickListener {
                     when (isFullScreen()) {
                         true -> setPortraitMode()
                         false -> setLandscapeMode()
                     }
-                })
+                }
         }
     }
 
@@ -52,37 +52,30 @@ class VideoFragment : Fragment(R.layout.fragment_video) {
         player_view?.release()
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        when (newConfig.orientation) {
-            ORIENTATION_LANDSCAPE -> setPortraitMode()
-            ORIENTATION_PORTRAIT -> setLandscapeMode()
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
         with(requireActivity()) {
+            nav_view?.visible()
             requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
             window?.decorView?.systemUiVisibility = SYSTEM_UI_FLAG_VISIBLE
         }
+        super.onDestroyView()
     }
 
     private fun setPortraitMode() {
         player_view?.exitFullScreen()
         with(requireActivity()) {
+            nav_view?.visible()
             requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
             window?.decorView?.systemUiVisibility = SYSTEM_UI_FLAG_VISIBLE
-            actionBar?.show()
         }
     }
 
     private fun setLandscapeMode() {
         player_view?.enterFullScreen()
         with(requireActivity()) {
+            nav_view?.gone()
             requestedOrientation = SCREEN_ORIENTATION_LANDSCAPE
             window?.decorView?.systemUiVisibility = SYSTEM_UI_FLAG_FULLSCREEN
-            actionBar?.hide()
         }
     }
 }

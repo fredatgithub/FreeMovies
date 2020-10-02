@@ -14,7 +14,7 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     fun getVideos(id: String) {
         viewModelScope.launch {
             val response = repository.getVideos(id)
-            if (response.isSuccessful) videos.postValue(response.body()?.items)
+            if (response.isSuccessful) videos.postValue(response.body()?.items?.reversed())
         }
     }
 }

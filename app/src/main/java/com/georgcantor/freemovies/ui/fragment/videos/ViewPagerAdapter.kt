@@ -1,4 +1,4 @@
-package com.georgcantor.freemovies.ui.fragment.movies
+package com.georgcantor.freemovies.ui.fragment.videos
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

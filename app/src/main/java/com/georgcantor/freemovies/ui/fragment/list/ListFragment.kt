@@ -28,6 +28,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         arguments?.getString(PLAYLIST_ID)?.let { viewModel.getVideos(it) }
 
         viewModel.videos.observe(viewLifecycleOwner) {
+            recycler_view.setHasFixedSize(true)
             recycler_view.adapter = ListAdapter(it) {
                 (activity as AppCompatActivity).openFragment(DetailsFragment().apply {
                     arguments = Bundle().apply { putParcelable(VIDEO_ITEM, it) }

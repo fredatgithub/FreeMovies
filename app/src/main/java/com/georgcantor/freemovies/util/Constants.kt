@@ -13,6 +13,10 @@ object Constants {
     const val MAD_GIRLS = "PL-3yuW1_pI51VCo70TwJE0mblNBc9rhYv"
     const val REVIZORRO = "PL-3yuW1_pI50cemjShQnsc6tnzRbGCiLu"
 
+    const val RUSSIA = "PLpRpBSDScddaGFuFYcdPA9FsaEEJ8FJT_"
+    const val GERMANY = "PLpRpBSDScdda-FwWFOlwW15w7UmX8zu0a"
+    const val AFTER_FOOTBALL = "PLpRpBSDScddbvalTXgULMsMBbX8AGxEI4"
+
     const val PLAYLIST_ID = "playlist_id"
     const val VIDEO_ITEM = "video_item"
 }

@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/nav_movies"
-        android:name="com.georgcantor.freemovies.ui.fragment.movies.VideosFragment"
+        android:name="com.georgcantor.freemovies.ui.fragment.videos.VideosFragment"
         android:label="@string/movies"
         tools:layout="@layout/fragment_videos" />
 
     <fragment
         android:id="@+id/nav_tv"
-        android:name="com.georgcantor.freemovies.ui.fragment.movies.VideosFragment"
+        android:name="com.georgcantor.freemovies.ui.fragment.videos.VideosFragment"
         android:label="@string/tv"
         tools:layout="@layout/fragment_videos" />
 
     <fragment
-        android:id="@+id/nav_favorites"
-        android:name="com.georgcantor.freemovies.ui.fragment.favorites.FavoritesFragment"
-        android:label="@string/favorites"
+        android:id="@+id/nav_sport"
+        android:name="com.georgcantor.freemovies.ui.fragment.videos.VideosFragment"
+        android:label="@string/sport"
         tools:layout="@layout/fragment_favorites" />
 
 </navigation>

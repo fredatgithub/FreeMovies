@@ -12,8 +12,8 @@
         android:title="@string/tv" />
 
     <item
-        android:id="@+id/nav_favorites"
-        android:icon="@drawable/ic_favorite"
-        android:title="@string/favorites" />
+        android:id="@+id/nav_sport"
+        android:icon="@drawable/ic_sport"
+        android:title="@string/sport" />
 
 </menu>

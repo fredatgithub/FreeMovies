@@ -16,9 +16,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val item: Item? = arguments?.getParcelable(VIDEO_ITEM)
-
-        item?.let { item ->
+        (arguments?.getParcelable(VIDEO_ITEM) as Item?)?.let { item ->
             item.snippet?.thumbnails?.standard?.url?.let { url -> context?.loadImage(url, image) }
             title.text = item.snippet?.title
             description.text = item.snippet?.description
