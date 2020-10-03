@@ -14,7 +14,7 @@ fun Context.isNetworkAvailable() = (getSystemService(Context.CONNECTIVITY_SERVIC
 
 fun Context.loadImage(url: String, view: ImageView) = Glide.with(this)
     .load(url)
-    .placeholder(android.R.color.darker_gray)
+    .placeholder(android.R.color.black)
     .thumbnail(0.1F)
     .into(view)
 
@@ -28,8 +28,6 @@ fun AppCompatActivity.addFragment(fragment: Fragment) = supportFragmentManager.b
     addToBackStack(null)
     commit()
 }
-
-fun AppCompatActivity.popFragment() = supportFragmentManager.popBackStack()
 
 fun View.visible() { visibility = View.VISIBLE }
 
