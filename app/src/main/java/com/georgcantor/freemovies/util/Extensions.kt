@@ -18,10 +18,18 @@ fun Context.loadImage(url: String, view: ImageView) = Glide.with(this)
     .thumbnail(0.1F)
     .into(view)
 
-fun AppCompatActivity.openFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
+fun AppCompatActivity.replaceFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
         replace(R.id.fragment, fragment)
         commit()
     }
+
+fun AppCompatActivity.addFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
+    add(R.id.fragment, fragment)
+    addToBackStack(null)
+    commit()
+}
+
+fun AppCompatActivity.popFragment() = supportFragmentManager.popBackStack()
 
 fun View.visible() { visibility = View.VISIBLE }
 

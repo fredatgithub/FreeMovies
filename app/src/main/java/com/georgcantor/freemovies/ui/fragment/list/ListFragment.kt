@@ -8,7 +8,7 @@ import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.ui.fragment.details.DetailsFragment
 import com.georgcantor.freemovies.util.Constants.PLAYLIST_ID
 import com.georgcantor.freemovies.util.Constants.VIDEO_ITEM
-import com.georgcantor.freemovies.util.openFragment
+import com.georgcantor.freemovies.util.addFragment
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.android.ext.android.inject
 
@@ -30,7 +30,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         viewModel.videos.observe(viewLifecycleOwner) {
             recycler_view.setHasFixedSize(true)
             recycler_view.adapter = ListAdapter(it) {
-                (activity as AppCompatActivity).openFragment(DetailsFragment().apply {
+                (activity as AppCompatActivity).addFragment(DetailsFragment().apply {
                     arguments = Bundle().apply { putParcelable(VIDEO_ITEM, it) }
                 })
             }

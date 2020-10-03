@@ -8,7 +8,7 @@ import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.ui.fragment.videos.VideosFragment
 import com.georgcantor.freemovies.util.NetworkUtils.getNetworkLiveData
 import com.georgcantor.freemovies.util.gone
-import com.georgcantor.freemovies.util.openFragment
+import com.georgcantor.freemovies.util.replaceFragment
 import com.georgcantor.freemovies.util.visible
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,15 +22,15 @@ class MainActivity : AppCompatActivity() {
         val itemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_movies -> {
-                    openFragment(VideosFragment.create(0))
+                    replaceFragment(VideosFragment.create(0))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_tv -> {
-                    openFragment(VideosFragment.create(1))
+                    replaceFragment(VideosFragment.create(1))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_sport -> {
-                    openFragment(VideosFragment.create(2))
+                    replaceFragment(VideosFragment.create(2))
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -51,10 +51,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        when (nav_view.selectedItemId) {
-            R.id.nav_sport -> nav_view.selectedItemId = R.id.nav_tv
-            R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
-            R.id.nav_movies -> super.onBackPressed()
+        if (supportFragmentManager.fragments.size < 3) {
+            when (nav_view.selectedItemId) {
+                R.id.nav_sport -> nav_view.selectedItemId = R.id.nav_tv
+                R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
+                R.id.nav_movies -> super.onBackPressed()
+            }
+        } else {
+            supportFragmentManager.popBackStack()
         }
     }
 }

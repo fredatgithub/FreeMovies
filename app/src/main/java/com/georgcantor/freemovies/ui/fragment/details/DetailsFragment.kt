@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.model.response.Item
 import com.georgcantor.freemovies.util.Constants.VIDEO_ITEM
+import com.georgcantor.freemovies.util.addFragment
 import com.georgcantor.freemovies.util.loadImage
-import com.georgcantor.freemovies.util.openFragment
 import kotlinx.android.synthetic.main.content_details.*
 import kotlinx.android.synthetic.main.fragment_details.*
 
@@ -23,7 +23,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
             fab_play.setOnClickListener {
                 (requireActivity() as AppCompatActivity)
-                    .openFragment(VideoFragment.create(item.snippet?.resourceId?.videoId))
+                    .addFragment(VideoFragment.create(item.snippet?.resourceId?.videoId))
             }
         }
     }
