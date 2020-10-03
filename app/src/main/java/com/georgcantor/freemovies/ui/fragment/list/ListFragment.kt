@@ -27,7 +27,10 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.getString(PLAYLIST_ID)?.let { viewModel.getVideos(it) }
+        arguments?.getString(PLAYLIST_ID)?.let {
+            viewModel.getVideos(it)
+            refresh_layout.setOnRefreshListener { viewModel.getVideos(it) }
+        }
 
         viewModel.isProgressVisible.observe(viewLifecycleOwner) { load ->
             progress_bar.visibility = if (load) VISIBLE else GONE
@@ -40,6 +43,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                     arguments = Bundle().apply { putParcelable(VIDEO_ITEM, it) }
                 })
             }
+            refresh_layout.isRefreshing = false
         }
     }
 }
