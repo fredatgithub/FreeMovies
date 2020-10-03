@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         when (nav_view.selectedItemId) {
             R.id.nav_sport -> nav_view.selectedItemId = R.id.nav_tv
             R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
-            R.id.nav_movies -> finish()
+            R.id.nav_movies -> super.onBackPressed()
         }
     }
 }
