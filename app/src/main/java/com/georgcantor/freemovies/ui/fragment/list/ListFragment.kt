@@ -2,6 +2,8 @@ package com.georgcantor.freemovies.ui.fragment.list
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.georgcantor.freemovies.R
@@ -26,6 +28,10 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.getString(PLAYLIST_ID)?.let { viewModel.getVideos(it) }
+
+        viewModel.isProgressVisible.observe(viewLifecycleOwner) { load ->
+            progress_bar.visibility = if (load) VISIBLE else GONE
+        }
 
         viewModel.videos.observe(viewLifecycleOwner) {
             recycler_view.setHasFixedSize(true)

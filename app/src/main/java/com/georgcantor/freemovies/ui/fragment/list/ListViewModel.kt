@@ -10,11 +10,14 @@ import kotlinx.coroutines.launch
 class ListViewModel(private val repository: Repository) : ViewModel() {
 
     val videos = MutableLiveData<List<Item>>()
+    val isProgressVisible = MutableLiveData<Boolean>()
 
     fun getVideos(id: String) {
+        isProgressVisible.value = true
         viewModelScope.launch {
             val response = repository.getVideos(id)
             if (response.isSuccessful) videos.postValue(response.body()?.items?.reversed())
+            isProgressVisible.postValue(false)
         }
     }
 }
