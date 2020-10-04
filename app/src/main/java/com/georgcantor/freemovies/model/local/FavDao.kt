@@ -15,5 +15,5 @@ interface FavDao {
     suspend fun insert(favVideo: FavVideo)
 
     @Query("DELETE FROM favorites WHERE videoId = :videoId")
-    suspend fun deleteById(videoId: String)
+    suspend fun deleteById(videoId: String?)
 }

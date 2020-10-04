@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (supportFragmentManager.fragments.size < 3) {
             when (nav_view.selectedItemId) {
+                R.id.nav_favorites -> nav_view.selectedItemId = R.id.nav_sport
                 R.id.nav_sport -> nav_view.selectedItemId = R.id.nav_tv
                 R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
                 R.id.nav_movies -> {

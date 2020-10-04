@@ -24,13 +24,22 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             title.text = item.snippet?.title
             description.text = item.snippet?.description
 
+            viewModel.checkIsFavorite(item)
+
+            viewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
+                fab_fav.setImageResource(if (isFavorite) R.drawable.ic_star else R.drawable.ic_star_border)
+
+                fab_fav.setOnClickListener {
+                    when {
+                        isFavorite -> viewModel.removeFromFavorites(item)
+                        else -> viewModel.addToFavorites(item)
+                    }
+                }
+            }
+
             fab_play.setOnClickListener {
                 (requireActivity() as AppCompatActivity)
                     .openFragment(VideoFragment.create(item.snippet?.resourceId?.videoId), false)
-            }
-
-            fab_fav.setOnClickListener {
-                viewModel.addToFavorites(item)
             }
         }
     }

@@ -23,7 +23,7 @@ class Repository(
         async { dao.insert(favVideo) }
     }
 
-    suspend fun deleteById(videoId: String) = coroutineScope {
+    suspend fun deleteById(videoId: String?) = coroutineScope {
         async { dao.deleteById(videoId) }
     }
 }
