@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.georgcantor.freemovies.model.local.FavVideo
-import com.georgcantor.freemovies.model.remote.response.Item
 import com.georgcantor.freemovies.repository.Repository
 import kotlinx.coroutines.launch
 
@@ -12,29 +11,22 @@ class DetailsViewModel(private val repository: Repository) : ViewModel() {
 
     val isFavorite = MutableLiveData<Boolean>()
 
-    fun checkIsFavorite(item: Item) {
+    fun checkIsFavorite(video: FavVideo) {
         viewModelScope.launch {
-            isFavorite.postValue(repository.getFavorites().await().any { it.videoId == item.snippet?.resourceId?.videoId })
+            isFavorite.postValue(repository.getFavoritesAsync().await().any { it.videoId == video.videoId })
         }
     }
 
-    fun addToFavorites(item: Item) {
+    fun addToFavorites(video: FavVideo) {
         viewModelScope.launch {
-            repository.insert(
-                FavVideo(
-                    item.snippet?.title,
-                    item.snippet?.description,
-                    item.snippet?.resourceId?.videoId,
-                    item.snippet?.thumbnails?.standard?.url
-                )
-            ).await()
+            repository.insertAsync(video).await()
             isFavorite.postValue(true)
         }
     }
 
-    fun removeFromFavorites(item: Item) {
+    fun removeFromFavorites(id: String?) {
         viewModelScope.launch {
-            repository.deleteById(item.snippet?.resourceId?.videoId).await()
+            repository.deleteByIdAsync(id).await()
             isFavorite.postValue(false)
         }
     }

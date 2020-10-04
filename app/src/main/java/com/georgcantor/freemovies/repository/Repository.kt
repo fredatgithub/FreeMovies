@@ -15,15 +15,15 @@ class Repository(
 
     suspend fun getVideos(id: String) = apiService.getVideos(YOUTUBE_URL, id)
 
-    suspend fun getFavorites(): Deferred<List<FavVideo>> = coroutineScope {
+    suspend fun getFavoritesAsync(): Deferred<List<FavVideo>> = coroutineScope {
         async { return@async dao.getAllVideos() }
     }
 
-    suspend fun insert(favVideo: FavVideo) = coroutineScope {
+    suspend fun insertAsync(favVideo: FavVideo) = coroutineScope {
         async { dao.insert(favVideo) }
     }
 
-    suspend fun deleteById(videoId: String?) = coroutineScope {
+    suspend fun deleteByIdAsync(videoId: String?) = coroutineScope {
         async { dao.deleteById(videoId) }
     }
 }

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.georgcantor.freemovies.R
+import com.georgcantor.freemovies.model.local.FavVideo
 import com.georgcantor.freemovies.model.remote.response.Item
 import com.georgcantor.freemovies.ui.fragment.list.ListAdapter.ListViewHolder
 import com.georgcantor.freemovies.util.loadImage
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.item_video.view.*
 
 class ListAdapter(
     private val items: List<Item>,
-    private val clickListener: (Item) -> Unit
+    private val clickListener: (FavVideo) -> Unit
 ) : ListAdapter<Item, ListViewHolder>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<Item>() {
@@ -36,7 +37,16 @@ class ListAdapter(
             item.snippet?.thumbnails?.standard?.url?.let {
                 itemView.context.loadImage(it, holder.image)
             }
-            itemView.setOnClickListener { clickListener(item) }
+            itemView.setOnClickListener {
+                clickListener(
+                    FavVideo(
+                        item.snippet?.title,
+                        item.snippet?.description,
+                        item.snippet?.resourceId?.videoId,
+                        item.snippet?.thumbnails?.standard?.url
+                    )
+                )
+            }
         }
     }
 
