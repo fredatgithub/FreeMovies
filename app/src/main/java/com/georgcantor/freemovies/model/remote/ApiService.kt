@@ -1,6 +1,6 @@
-package com.georgcantor.freemovies.model
+package com.georgcantor.freemovies.model.remote
 
-import com.georgcantor.freemovies.model.response.VideoResponse
+import com.georgcantor.freemovies.model.remote.response.VideoResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

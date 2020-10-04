@@ -5,14 +5,17 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.georgcantor.freemovies.R
-import com.georgcantor.freemovies.model.response.Item
+import com.georgcantor.freemovies.model.remote.response.Item
 import com.georgcantor.freemovies.util.Constants.VIDEO_ITEM
 import com.georgcantor.freemovies.util.loadImage
 import com.georgcantor.freemovies.util.openFragment
 import kotlinx.android.synthetic.main.content_details.*
 import kotlinx.android.synthetic.main.fragment_details.*
+import org.koin.android.ext.android.inject
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
+
+    private val viewModel by inject<DetailsViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,6 +27,10 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             fab_play.setOnClickListener {
                 (requireActivity() as AppCompatActivity)
                     .openFragment(VideoFragment.create(item.snippet?.resourceId?.videoId), false)
+            }
+
+            fab_fav.setOnClickListener {
+                viewModel.addToFavorites(item)
             }
         }
     }

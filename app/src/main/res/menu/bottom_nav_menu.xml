@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_sport"
         android:title="@string/sport" />
 
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/ic_star_border"
+        android:title="@string/favorites" />
+
 </menu>

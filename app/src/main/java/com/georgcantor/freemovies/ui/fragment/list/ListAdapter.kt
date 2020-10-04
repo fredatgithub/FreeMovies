@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.georgcantor.freemovies.R
-import com.georgcantor.freemovies.model.response.Item
+import com.georgcantor.freemovies.model.remote.response.Item
 import com.georgcantor.freemovies.ui.fragment.list.ListAdapter.ListViewHolder
 import com.georgcantor.freemovies.util.loadImage
 import kotlinx.android.synthetic.main.item_video.view.*

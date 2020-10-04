@@ -3,6 +3,7 @@
     <string name="movies">Фильмы</string>
     <string name="tv">TV-шоу</string>
     <string name="sport">Спорт</string>
+    <string name="favorites">Избранное</string>
     <string name="thriller">Триллеры</string>
     <string name="horror">Ужасы</string>
     <string name="comedy">Комедии</string>

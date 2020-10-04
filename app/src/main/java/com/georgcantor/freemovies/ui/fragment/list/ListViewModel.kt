@@ -3,7 +3,7 @@ package com.georgcantor.freemovies.ui.fragment.list
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.georgcantor.freemovies.model.response.Item
+import com.georgcantor.freemovies.model.remote.response.Item
 import com.georgcantor.freemovies.repository.Repository
 import kotlinx.coroutines.launch
 

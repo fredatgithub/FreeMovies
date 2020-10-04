@@ -1,4 +1,4 @@
-package com.georgcantor.freemovies.model
+package com.georgcantor.freemovies.model.remote
 
 import android.content.Context
 import com.georgcantor.freemovies.BuildConfig.DEBUG

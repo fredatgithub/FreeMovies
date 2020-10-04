@@ -2,6 +2,7 @@ package com.georgcantor.freemovies
 
 import android.app.Application
 import com.georgcantor.freemovies.di.apiModule
+import com.georgcantor.freemovies.di.dbModule
 import com.georgcantor.freemovies.di.repositoryModule
 import com.georgcantor.freemovies.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +15,7 @@ class App : Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(listOf(apiModule, repositoryModule, viewModelModule))
+            modules(listOf(apiModule, dbModule, repositoryModule, viewModelModule))
         }
     }
 }

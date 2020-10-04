@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 fun Context.isNetworkAvailable() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?)
     ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 
-fun Context.loadImage(url: String, view: ImageView) = Glide.with(this)
+fun Context.loadImage(url: String?, view: ImageView) = Glide.with(this)
     .load(url)
     .placeholder(android.R.color.black)
     .thumbnail(0.1F)

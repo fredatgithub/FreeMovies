@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.georgcantor.freemovies.R
+import com.georgcantor.freemovies.ui.fragment.favorites.FavoritesFragment
 import com.georgcantor.freemovies.ui.fragment.videos.VideosFragment
 import com.georgcantor.freemovies.util.*
 import com.georgcantor.freemovies.util.NetworkUtils.getNetworkLiveData
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_sport -> {
                     openFragment(VideosFragment.create(2), true)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.nav_favorites -> {
+                    openFragment(FavoritesFragment(), true)
                     return@OnNavigationItemSelectedListener true
                 }
             }
