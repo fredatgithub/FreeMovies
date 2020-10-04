@@ -6,14 +6,14 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.georgcantor.freemovies.R
 import com.georgcantor.freemovies.ui.fragment.videos.VideosFragment
+import com.georgcantor.freemovies.util.*
 import com.georgcantor.freemovies.util.NetworkUtils.getNetworkLiveData
-import com.georgcantor.freemovies.util.gone
-import com.georgcantor.freemovies.util.replaceFragment
-import com.georgcantor.freemovies.util.visible
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var backButtonPressedTwice = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,15 @@ class MainActivity : AppCompatActivity() {
             when (nav_view.selectedItemId) {
                 R.id.nav_sport -> nav_view.selectedItemId = R.id.nav_tv
                 R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
-                R.id.nav_movies -> super.onBackPressed()
+                R.id.nav_movies -> {
+                    if (backButtonPressedTwice) {
+                        super.onBackPressed()
+                    } else {
+                        backButtonPressedTwice = true
+                        shortToast(getString(R.string.press_back))
+                        2000L.runDelayed { backButtonPressedTwice = false }
+                    }
+                }
             }
         } else {
             supportFragmentManager.popBackStack()
