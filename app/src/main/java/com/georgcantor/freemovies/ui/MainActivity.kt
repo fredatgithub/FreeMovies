@@ -22,15 +22,15 @@ class MainActivity : AppCompatActivity() {
         val itemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_movies -> {
-                    replaceFragment(VideosFragment.create(0))
+                    openFragment(VideosFragment.create(0), true)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_tv -> {
-                    replaceFragment(VideosFragment.create(1))
+                    openFragment(VideosFragment.create(1), true)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_sport -> {
-                    replaceFragment(VideosFragment.create(2))
+                    openFragment(VideosFragment.create(2), true)
                     return@OnNavigationItemSelectedListener true
                 }
             }

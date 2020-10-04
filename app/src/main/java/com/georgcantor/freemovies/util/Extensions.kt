@@ -2,6 +2,7 @@ package com.georgcantor.freemovies.util
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Handler
 import android.os.Looper.getMainLooper
 import android.view.View
@@ -25,16 +26,22 @@ fun Context.loadImage(url: String, view: ImageView) = Glide.with(this)
 
 fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
-        replace(R.id.fragment, fragment)
+fun AppCompatActivity.openFragment(fragment: Fragment, replace: Boolean) =
+    supportFragmentManager.beginTransaction().apply {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) setCustomAnimations(
+            R.anim.pull_in_right,
+            R.anim.push_out_left,
+            R.anim.pull_in_left,
+            R.anim.push_out_right
+        )
+        if (replace) {
+            replace(R.id.fragment, fragment)
+        } else {
+            add(R.id.fragment, fragment)
+            addToBackStack(null)
+        }
         commit()
     }
-
-fun AppCompatActivity.addFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
-    add(R.id.fragment, fragment)
-    addToBackStack(null)
-    commit()
-}
 
 fun View.visible() { visibility = View.VISIBLE }
 
