@@ -18,4 +18,5 @@
     <string name="after_football">После футбола</string>
     <string name="internet_unavailable">Интернет недоступен</string>
     <string name="press_back">Нажмите еще раз, чтобы выйти</string>
+    <string name="empty">Список избранного пуст</string>
 </resources>
