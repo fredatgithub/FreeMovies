@@ -9,11 +9,16 @@ import com.georgcantor.freemovies.ui.fragment.details.DetailsFragment
 import com.georgcantor.freemovies.util.Constants.VIDEO_ITEM
 import com.georgcantor.freemovies.util.openFragment
 import kotlinx.android.synthetic.main.fragment_list.*
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 
 class FavoritesFragment : Fragment(R.layout.fragment_list) {
 
-    private val viewModel by inject<FavoritesViewModel>()
+    private lateinit var viewModel: FavoritesViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getSharedViewModel()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

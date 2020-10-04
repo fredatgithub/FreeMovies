@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_tv -> nav_view.selectedItemId = R.id.nav_movies
                 R.id.nav_movies -> {
                     if (backButtonPressedTwice) {
-                        super.onBackPressed()
+                        finish()
                     } else {
                         backButtonPressedTwice = true
                         shortToast(getString(R.string.press_back))
