@@ -20,10 +20,8 @@ import kotlinx.android.synthetic.main.fragment_video.*
 class VideoFragment : Fragment(R.layout.fragment_video) {
 
     companion object {
-        fun create(id: String?): VideoFragment {
-            return VideoFragment().apply {
-                arguments = Bundle().apply { putString(PLAYLIST_ID, id) }
-            }
+        fun create(id: String?) = VideoFragment().apply {
+            arguments = Bundle().apply { putString(PLAYLIST_ID, id) }
         }
     }
 
